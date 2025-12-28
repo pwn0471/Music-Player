@@ -3,7 +3,7 @@ let song = document.getElementById("song");
 let ctrlicon = document.getElementById("ctrlicon");
 
 song.onloadedmetadata = function(){
-    progress.max = song.duration;
+    progres.max = song.duration;
     progress.value = song.currenTime;
 
 }
@@ -23,3 +23,16 @@ function playPause(){
 
     }
 } 
+
+if(song.play()){
+    setInterval(()=>{
+        progress.value = song.currenTime;
+    },500);
+}
+
+progress.onchange = function(){
+    song.play();
+    song.currenTime = progress.value;
+    ctrlicon.classList.add("fa-pause");
+    ctrlicon.classList.remove("fa-play");     
+}

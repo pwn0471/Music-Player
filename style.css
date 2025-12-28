@@ -69,6 +69,8 @@ nav .circle{
     border-radius: 4px;
     cursor: pointer;
     margin: 40px 0px;
+    display: block;
+
 }
 #progress::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -76,8 +78,29 @@ nav .circle{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 8px solid #fff;
+    border: 6px solid #fff;
     box-shadow: 0 5px 5px rgba(225, 26, 26, 0.22);
+}
+
+#progres{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #f53192;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 30px 0px;
+    display: block;
+}
+
+#progres::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: #f53192;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow:0 5px 5px rgba(225, 26, 26, 0.22) ;
 }
 
 .controls{
