@@ -1,12 +1,22 @@
-let progress = document.getElementById("progress");
+let progres = document.getElementById("progres");
 let song = document.getElementById("song");
 let ctrlicon = document.getElementById("ctrlicon");
 
+let currTime = document.getElementById("currTime");
+let duration = document.getElementById("duration");
+
+
 song.onloadedmetadata = function(){
     progres.max = song.duration;
-    progress.value = song.currenTime;
+    progres.value = 0;
+    duration.textContent = formatTime(song.duration);
 
 }
+
+song.addEventListener("timeupdate", function(){
+    progres.value = song.currentTime;
+    currTime.textContent = formatTime(song.currentTime);
+})
 
 ctrlicon.onclick=playPause;
 
@@ -26,13 +36,28 @@ function playPause(){
 
 if(song.play()){
     setInterval(()=>{
-        progress.value = song.currenTime;
+        progres.value = song.currentTime;
     },500);
 }
 
-progress.onchange = function(){
-    song.play();
-    song.currenTime = progress.value;
-    ctrlicon.classList.add("fa-pause");
-    ctrlicon.classList.remove("fa-play");     
+progres.oninput = function(){
+    
+    // song.play();
+    // song.currentTime = progres.value;
+    // ctrlicon.classList.add("fa-pause");
+    // ctrlicon.classList.remove("fa-play");     
+
+
+        song.currentTime = progres.value;
+        currTime.textContent = formatTime(song.currentTime);
+    
+}
+
+function formatTime(time){
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60);
+    if(seconds <10){
+        seconds = "0" + seconds;
+    }
+    return minutes + ":" + seconds;
 }
