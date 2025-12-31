@@ -9,15 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="music-player ">
-            <nav>
+        <div class="player-wrapper" id="wrapper">
+            <div class="music-player">
+                <nav>
                 <div class="circle">
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
                 <div class="circle">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars" id="menuBtn"></i>
                 </div>
-            </nav>
+             </nav>
             <img src="" class="song-img">
             <h1> </h1>
             <p></p>
@@ -34,11 +35,15 @@
                 <div id="prev"><i class="fa-solid fa-backward"></i></div>
                 <div><i class="fa-solid fa-play" id="ctrlicon"></i></div>
                 <div id="next"><i class="fa-solid fa-forward"></i></div>
-
-
+            </div>
+            </div>
+            <div class="playlist" id="playlist">
+                <h3>Playlist</h3>
+                <ul id="playlistItems"></ul>
             </div>
         </div>
     </div>
+ 
     
 
     <script src="script.js"> </script>
