@@ -119,19 +119,9 @@ function playPause(){
     }
 } 
 
-// if(song.play()){
-//     setInterval(()=>{
-//         progres.value = song.currentTime;
-//     },500);
-// }
 
 progres.oninput = function(){
     
-    // song.play();
-    // song.currentTime = progres.value;
-    // ctrlicon.classList.add("fa-pause");
-    // ctrlicon.classList.remove("fa-play");     
-
 
         song.currentTime = progres.value;
         currTime.textContent = formatTime(song.currentTime);
