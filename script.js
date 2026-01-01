@@ -147,45 +147,7 @@ function formatTime(time){
     return minutes + ":" + seconds;
 }
 
-// adding playlist
-
-let menuBtn = document.getElementById("menuBtn");
-let playlistBox = document.getElementById("playlist");
-let playlistItems = document.getElementById("playlistItems");
 
 
-menuBtn.onclick = function(e){
-    e.preventDefault();
-
-    playlistBox.classList.toggle("active");
-};
-
-function renderPlaylist(){
-    playlistItems.innerHTML = "";
-    playlist.forEach((song, index)=>{
-        let li = document.createElement("li");
-        li.textContent = song.title + "-" + song.artist;
-
-        li.onclick = function(){
-            songIndex = index;
-            loadSong(songIndex);
-            song.play();
-
-            ctrlicon.classList.add("fa-pause");
-            ctrlicon.classList.remove("fa-play");
-            ctrlicon.classList.remove("active");
-
-        };
-
-        playlistItems.appendChild(li);
-    });
-}
-
-renderPlaylist();
 
 
-let wrapper = document.getElementById("playerWrapper");
-
-menuBtn.onclick = function(){
-  wrapper.classList.toggle("show-playlist");
-};
